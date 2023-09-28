@@ -2,12 +2,16 @@ import { getBlogs, getProjects } from "@/sanity/sanity-utils"
 import { PortableText } from "@portabletext/react";
 import Image from 'next/image'
 import Link from 'next/link'
+import { UserButton } from "@clerk/nextjs";
 
 export default async function Home() {
   const projects = await getProjects();
   const blogs = await getBlogs();
   return (
     <div>
+      <div>
+        <UserButton afterSignOutUrl="/"/>
+      </div>
       <h1 className="text-7xl font-extrabold">Hello I&apos;m
         <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent"> Yajie!</span>
       </h1>
